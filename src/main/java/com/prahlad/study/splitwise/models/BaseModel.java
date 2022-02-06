@@ -2,15 +2,11 @@ package com.prahlad.study.splitwise.models;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.time.LocalDate;
+import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -18,14 +14,16 @@ import java.time.LocalDate;
 public class BaseModel {
 
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column(updatable = false)
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
-    private LocalDate createdAt;
+    private Date createdAt;
 
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
-    private LocalDate modifiedAt;
+    private Date modifiedAt;
 
 }
