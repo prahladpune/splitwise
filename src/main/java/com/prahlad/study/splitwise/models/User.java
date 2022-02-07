@@ -1,17 +1,18 @@
 package com.prahlad.study.splitwise.models;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Setter
-@Getter
 @Entity
 @Table(name= "users")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User extends BaseModel {
-    String name;
-    String hashedPassword;
-    String phoneNumber;
+    private String name;
+    private String hashedPassword;
+    private String phoneNumber;
 }

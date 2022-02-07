@@ -1,5 +1,6 @@
 package com.prahlad.study.splitwise.models;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@Builder
 @Entity
 @Table(name = "groups")
 public class Group extends BaseModel {
